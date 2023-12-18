@@ -130,10 +130,6 @@ const SCN = function(p) {
     const X_MAX = p.createVector(ORIGIN_X + R, ORIGIN_Y, ORIGIN_Z);
     const Z_MAX = p.createVector(ORIGIN_X, ORIGIN_Y, ORIGIN_Z + R);
 
-    p.preload = function() {
-        roboto = p.loadFont('../roboto/Roboto-Bold.ttf');
-    };
-
     p.setup = function() {
         p.createCanvas(W, H, p.WEBGL);
         p.angleMode(p.DEGREES);
@@ -164,10 +160,6 @@ const SCN = function(p) {
         
 
         displayActive();
-
-        p.textFont(roboto);
-        p.text('X', X_MAX.x + 10, X_MAX.y);
-        p.text('Y', Y_MAX.x, Y_MAX.y - 10);
 
         p.pop();
 
