@@ -1,0 +1,151 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src: url('./roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('./roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Ita;
+    src: url('./roboto/Roboto-Italic.ttf');
+}
+
+:root {
+    --PEACH: #FFCBA4; 
+    --PINK: #F7A19E; 
+    --BLUE: #504fa5; 
+    --AZZURE: #6f9de3;  
+    --AQUA: #92dbed; 
+}
+
+body {
+    margin: 0;
+}
+
+.runner {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 20vh;
+}
+
+.runner h1 {
+    font-family: Roboto-Bold;
+    font-size: 10vmin;
+}
+
+.poem-div {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 40vh;
+    background-color: var(--AZZURE);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Roboto-Ita;
+    font-size: 2.5vmin;
+}
+
+.scenario-div {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sketch {
+    display: flex;
+    width: 60vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--BLUE);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--PEACH);
+}
+
+.controls table {
+    font-family: Roboto-Regular;
+    margin-top: 5vmin;
+    margin-bottom: 5vmin;
+    padding: 3vmin 0;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30vw;
+    border-spacing: 1vmin;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.controls table button {
+    background-color: var(--BLUE);
+    box-shadow: 1px 2px 0px var(--AZZURE);
+    color: white;
+    border: none;
+    width: 5vmin;
+    height: 3vmin;
+}
+
+.controls .hint-btn {
+    background-color: var(--BLUE);
+    box-shadow: 1px 2px 0px var(--AZZURE);
+    border-radius: 15px;
+    color: white;
+    border: none;
+    width: 15vmin;
+    height: 10vmin;
+    font-family: Roboto-Bold;
+    font-size: 4vmin;
+}
+
+.controls h2 {
+    font-family: Roboto-Bold;
+    color: black;
+}
+
+.solution {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    font-family: Roboto-Regular;
+    align-items: center;
+}
+
+.solution button {
+    font-family: Roboto-Bold;
+    font-size: 4vmin;
+    width: 20vmin;
+    height: 15vmin;
+    margin: 5vmin;
+    align-self: flex-start;
+    background-color: var(--PEACH);
+    box-shadow: 0px 5px 0px var(--PINK);
+    border: 2px solid var(--PINK);
+}
+
+.solution-text {
+    display: none;
+    flex-direction: column;
+    padding: 2vmin;
+    width: 96vw;
+}
+
+.solution-text h3 {
+    padding-left: 3vmin;
+}
+
+button:active {
+    transform: translateY(0.5vmin);
+}

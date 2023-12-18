@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./P5/p5.js"></script>
+        <script src="./p5lib/gradient.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" href="./scn.css">
+    </head>
+    <body>
+        <div class="runner">
+            <h1>core constellations</h1>
+        </div>
+        <div class="poem-div">
+            <p>"The sisters <b>alone</b> can can get <b>nothing</b> done,</p>
+            <p>But either Ynez or Zoe with Xanathe makes <b>one</b>.</p>
+            <p>There's <b>nothing</b> that Ynez and Zoe together can do,</p>
+            <p>Except with their sister, all together make <b>two</b>."</p>
+        </div>
+        <div class="scenario-div">
+            <div class="sketch" id="scn"></div>
+            <div class="controls" id="control_panel">
+                <table>
+                    <tr><td></td><td></td><td><button onclick="increaseValue('Alpha', 0, 'Alpha_x')">+</button></td><td></td><td><button onclick="increaseValue('Alpha', 1, 'Alpha_y')">+</button></td><td></td><td><button onclick="increaseValue('Alpha', 2, 'Alpha_z')">+</button></td></tr>
+                    <tr><td>Alpha</td><td>x</td><td id="Alpha_x">x_value</td><td>y</td><td id="Alpha_y">y_value</td><td>z</td><td id="Alpha_z">z_value</td></tr>
+                    <tr><td></td><td></td><td><button onclick="decreaseValue('Alpha', 0, 'Alpha_x')">-</button></td><td></td><td><button onclick="decreaseValue('Alpha', 1, 'Alpha_y')">-</button></td><td></td><td><button onclick="decreaseValue('Alpha', 2, 'Alpha_z')">-</button></td></tr>
+                    <tr><td></td><td></td><td><button onclick="increaseValue('Beta', 0, 'Beta_x')">+</button></td><td></td><td><button onclick="increaseValue('Beta', 1, 'Beta_y')">+</button></td><td></td><td><button onclick="increaseValue('Beta', 2, 'Beta_z')">+</button></td></tr>
+                    <tr><td>Beta</td><td>x</td><td id="Beta_x">x_value</td><td>y</td><td id="Beta_y">y_value</td><td>z</td><td id="Beta_z">z_value</td></tr>
+                    <tr><td></td><td></td><td><button onclick="decreaseValue('Beta', 0, 'Beta_x')">-</button></td><td></td><td><button onclick="decreaseValue('Beta', 1, 'Beta_y')">-</button></td><td></td><td><button onclick="decreaseValue('Beta', 2, 'Beta_z')">-</button></td></tr>
+                    <tr><td></td><td></td><td><button onclick="increaseValue('Gamma', 0, 'Gamma_x')">+</button></td><td></td><td><button onclick="increaseValue('Gamma', 1, 'Gamma_y')">+</button></td><td></td><td><button onclick="increaseValue('Gamma', 2, 'Gamma_z')">+</button></td></tr>
+                    <tr><td>Gamma</td><td>x</td><td id="Gamma_x">x_value</td><td>y</td><td id="Gamma_y">y_value</td><td>z</td><td id="Gamma_z">z_value</td></tr>
+                    <tr><td></td><td></td><td><button onclick="decreaseValue('Gamma', 0, 'Gamma_x')">-</button></td><td></td><td><button onclick="decreaseValue('Gamma', 1, 'Gamma_y')">-</button></td><td></td><td><button onclick="decreaseValue('Gamma', 2, 'Gamma_z')">-</button></td></tr>
+                    <tr><td></td><td></td><td><button onclick="increaseValue('Delta', 0, 'Delta_x')">+</button></td><td></td><td><button onclick="increaseValue('Delta', 1, 'Delta_y')">+</button></td><td></td><td><button onclick="increaseValue('Delta', 2, 'Delta_z')">+</button></td></tr>
+                    <tr><td>Delta</td><td>x</td><td id="Delta_x">x_value</td><td>y</td><td id="Delta_y">y_value</td><td>z</td><td id="Delta_z">z_value</td></tr>
+                    <tr><td></td><td></td><td><button onclick="decreaseValue('Delta', 0, 'Delta_x')">-</button></td><td></td><td><button onclick="decreaseValue('Delta', 1, 'Delta_y')">-</button></td><td></td><td><button onclick="decreaseValue('Delta', 2, 'Delta_z')">-</button></td></tr>
+                </table>
+                <button class="hint-btn" onclick="turnOnHints()">Hint</button>
+                <h2 id="result">Correct: </h2>
+            </div>
+        </div>
+        <div class="solution">
+            <button onclick="revealToggle()">Reveal Solution</button>
+            <div class="solution-text" id="sol_text">
+                $$ \text{Let } g = \langle N, \nu \rangle$$
+                $$ \text{Let } N = \{X, Y, Z\}$$
+                $$ \text{Let } \nu:2^N \rightarrow \mathbb{R}$$
+                <h2>Recall:</h2>
+                $$ C(x) := \{x \in \mathbb{R}^{|N|} | x(N) = \nu(N) \land x(S) \ge \nu(S), \\ \forall S \in 2^N\}$$
+                <h3>The sisters <b>alone</b> can can get <b>nothing</b> done,</h3>
+                $$ \nu(\{X\}) = \nu(\{Y\}) = \nu(\{Z\}) = 0$$
+                <h3>But either Ynez or Zoe with Xanathe makes <b>one</b>.</h3>
+                $$ \nu(\{X, Y\}) = \nu(\{X, Z\}) = 1$$
+                <h3>There's <b>nothing</b> that Ynez and Zoe together can do,</h3>
+                $$ \nu(\{Y, Z\}) = 0$$
+                <h3>Except with their sister, all together make <b>two</b>.</h3>
+                $$ \nu(\{X, Y, Z\}) = 0$$
+                <h2>Constraints</h2>
+                <ul>
+                    <li>\(x_X \ge 0\)</li>
+                    <li>\(x_Y \ge 0\)</li>
+                    <li>\(x_Z \ge 0\)</li>
+                    <li>\(x_X + x_Y \ge 1\)</li>
+                    <li>\(x_X + x_Z \ge 1\)</li>
+                    <li>\(x_Y + x_Z \ge 0\)</li>
+                    <li>\(x_X + x_Y + x_Z = 2\)</li>
+                </ul>
+                <h2>Thus:</h2>
+                $$ C(x) = \{(1, 1, 0), (1, 0, 1), (0, 1, 1), (2, 0, 0)\}$$
+            </div>
+        </div>
+        <script src="./scenarios/scn_one.js"></script>
+    </body>
+</html>
